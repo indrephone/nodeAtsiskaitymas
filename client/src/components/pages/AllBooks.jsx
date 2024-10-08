@@ -1,4 +1,6 @@
+import { useState, useEffect } from "react";
 import styled from "styled-components";
+import BookCard from "../UI/molecules/BookCard";
 
 const StyledSection = styled.section`
   > h1 {
@@ -48,7 +50,7 @@ const StyledSection = styled.section`
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      border: 3px solid #ff7e5f; 
+      border: 3px solid #ff7e5f;
       
       > div {
         border: 1px solid #ff7e5f;
@@ -60,6 +62,14 @@ const StyledSection = styled.section`
 `;
 
 const AllBooks = () => {
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5500/books`)
+      .then(res => res.json())
+      .then(data => setBooks(data));
+  }, []);
+
   return (
     <StyledSection>
       <h1>All Books</h1>
@@ -77,17 +87,24 @@ const AllBooks = () => {
         {/* Sort everything */}
         <div>
           <h4>Sorting</h4>
-          <button value="ratingAsc" >Rating ASC</button>
-          <button value="ratingDesc" >Rating DESC</button>
-          <button value="releasedAsc" >Released ASC</button>
-          <button value="releasedDesc" >Released DESC</button>
-          <button value="pagesAsc" >Pages ASC</button>
-          <button value="pagesDesc" >Pages DESC</button>
+          <button value="ratingAsc">Rating ASC</button>
+          <button value="ratingDesc">Rating DESC</button>
+          <button value="releasedAsc">Released ASC</button>
+          <button value="releasedDesc">Released DESC</button>
+          <button value="pagesAsc">Pages ASC</button>
+          <button value="pagesDesc">Pages DESC</button>
         </div>
 
         {/* Display all books */}
         <div>
-          {/* Book data will be displayed here */}
+          { 
+            books.map(book =>
+              <BookCard 
+                key={book._id} 
+                book={book}
+              />
+            )
+          }
         </div>
       </div>
     </StyledSection>

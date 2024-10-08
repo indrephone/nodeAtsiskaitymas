@@ -16,7 +16,7 @@ app.use(cors(corsOptions));
 app.listen(PORT, () => console.log(`Server is running on PORT: ${PORT}`));
 
 // all gifts route
-app.get('/knygos', async (req, res) => {
+app.get('/books', async (req, res) => {
   const client = await MongoClient.connect(DB_CONNECTION);
   const data = await client.db('biblioteka').collection('knygos').find({}).toArray();
   await client.close();
