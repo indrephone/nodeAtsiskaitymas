@@ -44,7 +44,7 @@ const StyledBookCard = styled.div`
 `;
 
 const BookCard = ({ book }) => {
-  const { _id, title, description, author, genres, pages, publishDate, rating } = book;
+  const { _id, title, description, author, genres, pages, publishDate, rating, amountOfCopies } = book;
 
   const getPartialDescription = (desc) => {
     return desc.length > 100 ? desc.substring(0, 100) + "..." : desc;
@@ -63,6 +63,7 @@ const BookCard = ({ book }) => {
         <span>Pages: {pages}</span>
         <span>Publish Date: {new Date(publishDate).toDateString()}</span>
         <span>Rating: {rating}</span>
+        <span>Available: {amountOfCopies} copies</span>
       </div>
       <p>Description: {getPartialDescription(description)}</p>
       <button onClick={handleReadMore}>Read More </button>
