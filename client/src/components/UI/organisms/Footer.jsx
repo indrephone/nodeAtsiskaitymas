@@ -5,23 +5,21 @@ import { PiTiktokLogoLight } from "react-icons/pi";
 
 // Styling for the Footer container
 const StyledFooter = styled.footer`
-   height: 100px;
+   height: 120px;
    display: flex;
-   justify-content: space-around;  /* Space between the items */
+   justify-content: space-around; 
    align-items: center;
    padding: 0 20px;
    background-color: #f0f0f0;
 `;
-
-// Styling for the Icons group
 const IconGroup = styled.div`
    display: flex;
-   gap: 15px; /* Gap between the icons */
+   gap: 20px;
+   font-size: 2rem;
 `;
-
-// Styling for the Address and Copyright text
 const FooterText = styled.p`
    margin: 0;
+   font-size: 1.2rem;
 `;
 
 const Footer = () => {

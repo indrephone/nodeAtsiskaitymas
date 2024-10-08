@@ -10,9 +10,11 @@ const StyledHeader = styled.header`
     font-family: "Gill Sans Extrabold", sans-serif;
 
     > a {
-      height: 80%; 
+      
+      height: 100px; 
 
       > img {
+      margin-top: 30px;
       height: 100%;
       width: auto;
       }
@@ -33,12 +35,13 @@ const StyledHeader = styled.header`
             text-decoration: none;
             font-size: 1.3rem;
             font-weight: 600;
+            color: #feb47b;
 
             &:hover{
               color: red;
             }
             &.active{
-              color: green;
+              color: #ff7e5f;
             }
           }
         }
