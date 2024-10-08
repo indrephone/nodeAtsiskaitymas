@@ -1,0 +1,328 @@
+
+
+[
+    {
+     "_id": "e0f1c2b2-b229-46c4-aa13-90ca2bd49770",
+     "title":  "Dog Collar With Spikes",
+     "categories": [ "dog", "collar", "spikes", "leather","metal", "black", "pets"],
+     "lenght": "50cm",
+     "width": "2cm",
+     "description": "Dog collar with spikes, made from leather and metal. Suitable for medium and large dogs.",
+     "price": 20
+    }, 
+    {
+      "_id": "db2da91f-b8a7-40f1-bc3b-53c024d414c5",
+      "title": "Wireless Bluetooth Headphones",
+      "categories": ["electronics", "headphones", "wireless", "bluetooth", "music"],
+      "length": "20cm",
+      "width": "5cm",
+      "description": "High-quality wireless Bluetooth headphones with noise-canceling feature.",
+      "price": 94.42
+    },
+    {
+      "_id": "c0d07de1-7233-46ef-b0a2-15c75667d61f",
+      "title": "Personalized Leather Notebook",
+      "categories": ["stationery", "notebook", "leather", "personalized", "gifts"],
+      "length": "15cm",
+      "width": "10cm",
+      "description": "Elegant personalized leather notebook, perfect for journaling and note-taking.",
+      "price": 99.91
+    },
+    {
+      "_id": "a1589479-42dd-4726-a635-d9c31077f54b",
+      "title": "Scented Candle Set",
+      "categories": ["home", "candles", "scented", "decor", "gifts"],
+      "length": "12cm",
+      "width": "8cm",
+      "description": "Set of 3 scented candles with lavender, vanilla, and rose fragrances.",
+      "price": 26.91
+    },
+    {
+      "_id": "c5edb867-de46-4c90-860b-d4e89a28a310",
+      "title": "Pet Water Fountain",
+      "categories": ["pets", "water fountain", "dog", "cat", "hydration"],
+      "length": "30cm",
+      "width": "20cm",
+      "description": "Automatic pet water fountain to keep your pets hydrated with clean water.",
+      "price": 12.48
+    },
+    {
+      "_id": "62c13cce-e2bf-4207-a5e2-0ef850b4d997",
+      "title": "Gaming Mouse Pad",
+      "categories": ["gaming", "mouse pad", "electronics", "accessories"],
+      "length": "40cm",
+      "width": "30cm",
+      "description": "Smooth and durable gaming mouse pad with anti-slip rubber base.",
+      "price": 19.47
+    },
+    {
+        "_id": "7b11a270-1df1-4d13-9695-9ae26a849704",
+        "title": "Sterling Silver Necklace",
+        "categories": ["wallet", "leather", "accessories", "fashion", "custom"],
+        "length": "45cm",
+        "width": "2cm",
+        "description": "Elegant sterling silver necklace with a minimalist design.",
+        "price": 26.87
+      },
+      {
+        "_id": "55a41643-cfc4-4edc-8df0-1a7a327fef70",
+        "title": "Ceramic Plant Pot",
+        "categories": ["wallet", "leather", "accessories", "fashion", "custom"],
+        "length": "78cm",
+        "width": "10cm",
+        "description": "Decorative ceramic pot, perfect for indoor plants and home decor.",
+        "price": 80.0
+      },
+      {
+        "_id": "596861d5-7952-4266-9b71-8ac92308ee75",
+        "title": "Sterling Silver Necklace",
+        "categories": ["wallet", "leather", "accessories", "fashion", "custom"],
+        "length": "24cm",
+        "width": "1cm",
+        "description": "Elegant sterling silver necklace with a minimalist design.",
+        "price": 64.21
+      },
+      {
+        "_id": "b83a64ac-7cf3-4685-9440-e67c63300163",
+        "title": "Fleece Throw Blanket",
+        "categories": ["dog", "collar", "spikes", "leather", "metal", "black", "pets"],
+        "length": "68cm",
+        "width": "5cm",
+        "description": "Soft and cozy fleece blanket, ideal for keeping warm during cold nights.",
+        "price": 26.32
+      },
+      {
+        "_id": "3829c231-0e5b-4373-ac3a-31773ef2b703",
+        "title": "Bluetooth Speaker",
+        "categories": ["dog", "collar", "spikes", "leather", "metal", "black", "pets"],
+        "length": "74cm",
+        "width": "5cm",
+        "description": "Portable Bluetooth speaker with high-quality sound and long battery life.",
+        "price": 92.5
+      },
+      {
+        "_id": "7db76708-a54d-4a51-8832-81598c455782",
+        "title": "Organic Bath Bombs Set",
+        "categories": ["bath", "bombs", "organic", "beauty", "relaxation"],
+        "length": "90cm",
+        "width": "3cm",
+        "description": "Set of organic bath bombs made with essential oils for a relaxing bath experience.",
+        "price": 67.93
+      },
+      {
+        "_id": "e14296f1-32aa-4b93-979b-7eea2fd290c4",
+        "title": "Bluetooth Speaker",
+        "categories": ["blanket", "fleece", "home", "cozy", "gifts"],
+        "length": "82cm",
+        "width": "9cm",
+        "description": "Portable Bluetooth speaker with high-quality sound and long battery life.",
+        "price": 41.9
+      },
+      {
+        "_id": "9e96dcde-eb9a-4558-b3d2-c1f0bcb97be3",
+        "title": "Personalized Coffee Mug",
+        "categories": ["blanket", "fleece", "home", "cozy", "gifts"],
+        "length": "45cm",
+        "width": "2cm",
+        "description": "Customizable coffee mug with your name or message printed.",
+        "price": 89.58
+      },
+      {
+        "_id": "be8fa542-49fc-42ea-ac3d-38bb07750248",
+        "title": "Sterling Silver Necklace",
+        "categories": ["jewelry", "box", "wood", "handmade", "decor", "home"],
+        "length": "77cm",
+        "width": "7cm",
+        "description": "Elegant sterling silver necklace with a minimalist design.",
+        "price": 68.46
+      },
+      {
+        "_id": "7ca1fe87-374d-45a3-86d5-1fec2dfb11b5",
+        "title": "Handmade Wooden Jewelry Box",
+        "categories": ["speaker", "bluetooth", "electronics", "music", "portable"],
+        "length": "58cm",
+        "width": "1cm",
+        "description": "A beautiful handmade wooden box, perfect for keeping your jewelry safe.",
+        "price": 52.26
+      },
+      {
+        "_id": "a488d7a6-e63c-4020-bed1-0ceb9d1dbfd8",
+        "title": "Personalized Coffee Mug",
+        "categories": ["blanket", "fleece", "home", "cozy", "gifts"],
+        "length": "85cm",
+        "width": "4cm",
+        "description": "Customizable coffee mug with your name or message printed.",
+        "price": 85.36
+      },
+      {
+        "_id": "bfb30ed5-6c36-4f8f-8f44-5040c2e9158c",
+        "title": "Eco-friendly Bamboo Toothbrush",
+        "categories": ["toothbrush", "bamboo", "eco-friendly", "oral care", "personal care"],
+        "length": "19cm",
+        "width": "1cm",
+        "description": "Sustainable bamboo toothbrush, biodegradable and perfect for eco-conscious individuals.",
+        "price": 3.99
+      },
+      {
+        "_id": "3f8f6f1d-9575-4f43-933b-3b53733f47e5",
+        "title": "Stainless Steel Water Bottle",
+        "categories": ["bottle", "stainless steel", "hydration", "outdoor", "travel"],
+        "length": "25cm",
+        "width": "7cm",
+        "description": "Durable stainless steel water bottle, insulated to keep drinks hot or cold for hours.",
+        "price": 15.75
+      },
+      {
+        "_id": "273b5081-9e9e-47db-8ef9-5b527f841afd",
+        "title": "Yoga Mat",
+        "categories": ["fitness", "yoga", "mat", "exercise", "wellness"],
+        "length": "180cm",
+        "width": "60cm",
+        "description": "Non-slip yoga mat with extra cushioning for a comfortable workout experience.",
+        "price": 30.00
+      },
+      {
+        "_id": "b8a82d77-bdd4-41f7-96f4-6b9f2ad0e0e6",
+        "title": "Wireless Charging Pad",
+        "categories": ["electronics", "charging", "wireless", "gadgets", "phone accessories"],
+        "length": "10cm",
+        "width": "10cm",
+        "description": "Sleek wireless charging pad compatible with most smartphones and accessories.",
+        "price": 25.00
+      },
+      {
+        "_id": "c7e4584d-69f5-4ae6-a992-6bfcc1bfe941",
+        "title": "Portable Mini Projector",
+        "categories": ["electronics", "projector", "gadgets", "home entertainment"],
+        "length": "12cm",
+        "width": "8cm",
+        "description": "Compact mini projector, perfect for home theaters or outdoor movie nights.",
+        "price": 120.99
+      },
+      {
+        "_id": "0e8505d3-e0d7-4b58-986d-0fc6d56ab7b3",
+        "title": "Noise-Cancelling Earbuds",
+        "categories": ["electronics", "earbuds", "audio", "noise-cancelling", "music"],
+        "length": "4cm",
+        "width": "2cm",
+        "description": "High-quality noise-cancelling earbuds with clear sound and comfortable fit.",
+        "price": 59.99
+      },
+      {
+        "_id": "c9ff20e3-7e98-42f4-8e4a-3d3b456b6fae",
+        "title": "Digital Kitchen Scale",
+        "categories": ["kitchen", "scale", "digital", "cooking", "gadgets"],
+        "length": "20cm",
+        "width": "15cm",
+        "description": "Accurate digital kitchen scale for measuring ingredients with precision.",
+        "price": 18.50
+      },
+      {
+        "_id": "799ea51d-4de1-4a29-bc52-58775c5a2b67",
+        "title": "Smart LED Light Bulb",
+        "categories": ["home", "lighting", "smart", "gadgets", "LED"],
+        "length": "8cm",
+        "width": "5cm",
+        "description": "Smart LED light bulb with customizable colors and voice control compatibility.",
+        "price": 12.99
+      },
+      {
+        "_id": "5e70c5b1-0e7d-4c98-b7a1-0b2d1c3a7a2c",
+        "title": "Fitness Resistance Bands Set",
+        "categories": ["fitness", "exercise", "bands", "workout", "strength training"],
+        "length": "90cm",
+        "width": "5cm",
+        "description": "Set of 5 resistance bands for strength training and full-body workouts.",
+        "price": 22.50
+      },
+      {
+        "_id": "8f2f51f7-2ba1-444f-a3c9-18d850f11d15",
+        "title": "USB-C Hub Adapter",
+        "categories": ["electronics", "USB", "hub", "gadgets", "laptop accessories"],
+        "length": "9cm",
+        "width": "3cm",
+        "description": "Multi-port USB-C hub adapter for expanding your device's connectivity options.",
+        "price": 29.99
+      },
+      {
+        "_id": "d5f2ec99-8da1-4d97-b9b4-c1e7ae56e3f2",
+        "title": "Travel Packing Cubes",
+        "categories": ["travel", "packing", "organizers", "luggage", "gadgets"],
+        "length": "40cm",
+        "width": "30cm",
+        "description": "Set of packing cubes to help organize and save space in your luggage.",
+        "price": 34.95
+      },
+      {
+        "_id": "3a2eb490-17e1-4f5a-96c6-5a2a9d68e9a1",
+        "title": "Electric Wine Opener",
+        "categories": ["kitchen", "gadgets", "wine", "electric", "bar accessories"],
+        "length": "25cm",
+        "width": "5cm",
+        "description": "Electric wine opener for effortless bottle opening, includes a foil cutter.",
+        "price": 38.00
+      },
+      {
+        "_id": "5dc34ab9-bc46-4a2e-9460-bd10da1728de",
+        "title": "Foldable Laptop Stand",
+        "categories": ["electronics", "laptop", "stand", "ergonomics", "gadgets"],
+        "length": "30cm",
+        "width": "25cm",
+        "description": "Adjustable and foldable laptop stand to improve posture and reduce strain.",
+        "price": 27.00
+      },
+      {
+        "_id": "d20a9f48-5da5-4fc2-98d6-7c2dcfbdf4d1",
+        "title": "Leather RFID Blocking Wallet",
+        "categories": ["wallet", "leather", "RFID", "fashion", "accessories"],
+        "length": "11cm",
+        "width": "8cm",
+        "description": "Stylish leather wallet with RFID-blocking technology to protect your cards.",
+        "price": 45.50
+      },
+      {
+        "_id": "70c9b8d4-3d71-48cf-bf97-346684f1f4ab",
+        "title": "Wireless Gaming Mouse",
+        "categories": ["electronics", "gaming", "mouse", "wireless", "gadgets"],
+        "length": "12cm",
+        "width": "6cm",
+        "description": "Ergonomic wireless gaming mouse with customizable buttons and RGB lighting.",
+        "price": 39.95
+      },
+      {
+        "_id": "83af8b74-2f68-402f-ae4d-368105b9fcfc",
+        "title": "Portable Power Bank",
+        "categories": ["electronics", "power bank", "portable", "gadgets", "travel"],
+        "length": "15cm",
+        "width": "7cm",
+        "description": "High-capacity portable power bank to charge your devices on the go.",
+        "price": 49.90
+      },
+      {
+        "_id": "da7a595d-fd90-4a77-9886-91499e920872",
+        "title": "Electric Pressure Cooker",
+        "categories": ["kitchen", "gadgets", "cooking", "electric", "appliances"],
+        "length": "30cm",
+        "width": "25cm",
+        "description": "Electric pressure cooker with multiple cooking functions and a large capacity.",
+        "price": 85.00
+      },
+      {
+        "_id": "58e58a74-7e8a-42a5-88df-5d12fb3ef6c5",
+        "title": "Organic Cotton T-shirt",
+        "categories": ["clothing", "organic", "cotton", "fashion", "eco-friendly"],
+        "length": "70cm",
+        "width": "50cm",
+        "description": "Soft and comfortable T-shirt made from 100% organic cotton.",
+        "price": 22.00
+      },
+     {
+       "_id": "f1b3b3b4-1b3b-4b3b-8b3b-1b3b3b3b3b3b",
+        "title": "Reusable Grocery Bags Set",
+        "categories": ["home", "grocery", "bags", "reusable", "eco-friendly"],
+        "length": "40cm",
+        "width": "30cm",
+        "description": "Set of 5 reusable grocery bags made from durable and eco-friendly materials.",
+        "price": 19.99
+     }
+    ]
