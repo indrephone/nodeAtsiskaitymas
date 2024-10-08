@@ -18,15 +18,18 @@ app.listen(PORT, () => console.log(`Server is running on PORT: ${PORT}`));
 
 // all books route with aggregate pipeline sorting and filtering
 app.get('/books', async (req, res) => {
-  const { title = '', genre = '', minYear = '0-01-01', maxYear = '9999-12-31', availability = '', sortField = 'rating', sortOrder = '1' } = req.query;
+  const { title = '', genre = '', minYear = '0-01-01', maxYear = '9999-12-31', availability = '', sortField = 'rating', sortOrder = '1', page = 1, limit = 10 } = req.query;
 
   console.log("Sort Field:", sortField, "Sort Order:", sortOrder); // Debugging the sort field and order
 
   try {
-
     const client = await MongoClient.connect(DB_CONNECTION);
     const db = client.db('biblioteka');
     const collection = db.collection('knygos');
+
+     // Calculate how many books to skip based on the page number
+     const skip = (page - 1) * limit;
+
 
     // Create the aggregation pipeline
     const pipeline = [
@@ -44,6 +47,12 @@ app.get('/books', async (req, res) => {
       },
       {
         $sort: { [sortField]: parseInt(sortOrder) } // Dynamic sorting field and order
+      },
+      {
+        $skip: skip // Skip the appropriate number of books for pagination
+      },
+      {
+        $limit: parseInt(limit) // Limit the number of books returned per page
       }
     ];
     // console.log("Pipeline:", JSON.stringify(pipeline, null, 2)); 
@@ -61,7 +70,6 @@ app.get('/books', async (req, res) => {
     res.status(500).json({ message: 'Error fetching filtered books' });
   }
 });
-
 
 
 
