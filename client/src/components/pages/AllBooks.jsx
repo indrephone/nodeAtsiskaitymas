@@ -3,6 +3,8 @@ import styled from "styled-components";
 import BookCard from "../UI/molecules/BookCard";
 import { useFormik } from "formik";
 
+import Pagination from "../UI/organisms/Pagination";
+
 const StyledSection = styled.section`
   > h1 {
     text-align: center;
@@ -67,6 +69,8 @@ const StyledSection = styled.section`
 
 const AllBooks = () => {
   const [books, setBooks] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1); // Set this based on total books and limit (10)
   const filterString = useRef(''); // filter string
   const sortString = useRef(''); // sort string
 
@@ -127,19 +131,31 @@ const AllBooks = () => {
   };
   
 
-  // Fetch books with filters and sorting
-  const fetchBooks = () => {
-    const url = `http://localhost:5500/books?${filterString.current}&${sortString.current}`;
-    console.log('Fetching URL:', url); // Debugging: check the final fetch URL
+ // Fetch books and update total pages based on total books
+ const fetchBooks = () => {
+    const url = `http://localhost:5500/books?${filterString.current}&${sortString.current}&page=${currentPage}&limit=10`; 
+    console.log('Fetching URL:', url);
   
     fetch(url)
       .then(res => res.json())
       .then(data => {
-        console.log('Fetched Books:', data); // Debugging: check the fetched data
-        setBooks(Array.isArray(data) ? data : []); // Ensure we set an array or an empty array
+        console.log('Fetched Books:', data);
+        setBooks(Array.isArray(data.books) ? data.books : []); // Use data.books
+        setTotalPages(Math.ceil(data.totalBooks / 10)); // Use totalBooks to calculate total pages
       })
-      .catch(err => console.error('Error fetching data:', err)); // Catch any error during fetch
+      .catch(err => console.error('Error fetching data:', err));
   };
+  
+   
+
+  // onPageChange function
+  const handlePageChange = (newPage) => {
+    if (newPage >= 1 && newPage <= totalPages) {
+      setCurrentPage(newPage);
+      fetchBooks(); // Fetch the new page data
+    }
+  };
+
   
 
   // Fetch books on the first render (initial load)
@@ -313,6 +329,14 @@ const AllBooks = () => {
             )
           }
         </div>
+        
+        <Pagination 
+           currentPage={currentPage} 
+           totalPages={totalPages} 
+           onPageChange={handlePageChange} 
+        />
+      
+      
       </div>
     </StyledSection>
   );

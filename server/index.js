@@ -29,7 +29,17 @@ app.get('/books', async (req, res) => {
 
      // Calculate how many books to skip based on the page number
      const skip = (page - 1) * limit;
-
+     // Get total number of books that match the filters
+     const totalBooks = await collection.countDocuments({
+      title: { $regex: title, $options: 'i' }, 
+      genres: { $regex: genre, $options: 'i' },
+      publishDate: { 
+        $gte: minYear,
+        $lte: maxYear
+      },
+      ...(availability === 'true' ? { amountOfCopies: { $gt: 0 } } : {}),
+      ...(availability === 'false' ? { amountOfCopies: { $eq: 0 } } : {})
+    });
 
     // Create the aggregation pipeline
     const pipeline = [
@@ -60,11 +70,7 @@ app.get('/books', async (req, res) => {
     const books = await collection.aggregate(pipeline).toArray();
     await client.close();
 
-    if (books.length > 0) {
-      res.status(200).json(books);
-    } else {
-      res.status(404).json({ message: 'No books found' });
-    }
+    res.status(200).json({ books, totalBooks }); // Return books and totalBooks
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: 'Error fetching filtered books' });
