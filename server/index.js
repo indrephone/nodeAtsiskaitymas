@@ -15,11 +15,20 @@ app.use(cors(corsOptions));
 
 app.listen(PORT, () => console.log(`Server is running on PORT: ${PORT}`));
 
-// all gifts route
+// all books route
 app.get('/books', async (req, res) => {
   const client = await MongoClient.connect(DB_CONNECTION);
   const data = await client.db('biblioteka').collection('knygos').find({}).toArray();
   await client.close();
   res.send(data);
+});
+
+// route to get one specific book
+app.get('/books/:id', async (req, res) => {
+  const client = await MongoClient.connect(DB_CONNECTION);
+  const bookId = req.params.id; 
+  const book = await client.db('biblioteka').collection('knygos').findOne({ _id: bookId });
+  await client.close();
+  res.send(book);
 });
 

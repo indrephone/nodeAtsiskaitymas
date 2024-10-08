@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Or any method to open in a new tab
 import styled from "styled-components";
 
 const StyledBookCard = styled.div`
   border: 1px solid #ccc;
+  border-radius: 10px;
   padding: 20px;
   width: 250px;
   margin: 15px;
@@ -11,6 +11,8 @@ const StyledBookCard = styled.div`
   flex-direction: column;
   justify-content: space-between;
   background-color: #f9f9f9;
+  font-family: "Gill Sans", "Trebuchet MS", sans-serif;
+
 
   h3 {
     font-size: 1.2rem;
@@ -45,7 +47,11 @@ const BookCard = ({ book }) => {
   const { _id, title, description, author, genres, pages, publishDate, rating } = book;
 
   const getPartialDescription = (desc) => {
-    return desc.length > 100 ? desc.substring(0, 30) + "..." : desc;
+    return desc.length > 100 ? desc.substring(0, 100) + "..." : desc;
+  };
+
+  const handleReadMore = () => {
+    window.open(`/books/${_id}`, '_blank', 'noopener noreferrer');
   };
 
   return (
@@ -58,10 +64,8 @@ const BookCard = ({ book }) => {
         <span>Publish Date: {new Date(publishDate).toDateString()}</span>
         <span>Rating: {rating}</span>
       </div>
-      <p>{getPartialDescription(description)}</p>
-      <Link href={`/books/${_id}`} target="_blank" rel="noopener noreferrer">
-        Read more
-      </Link>
+      <p>Description: {getPartialDescription(description)}</p>
+      <button onClick={handleReadMore}>Read More </button>
     </StyledBookCard>
   );
 };

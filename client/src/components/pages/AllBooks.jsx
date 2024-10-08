@@ -15,6 +15,8 @@ const StyledSection = styled.section`
     gap: 5px;
     grid-template-columns: 250px 1fr;
     grid-template-rows: auto 1fr;
+    font-family: "Gill Sans", "Trebuchet MS", sans-serif;
+
 
     > div:nth-child(1) {
       grid-area: 1 / 1 / 3 / 2;
