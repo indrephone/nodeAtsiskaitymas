@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import BookCard from "../UI/molecules/BookCard";
 import { useFormik } from "formik";
@@ -73,20 +73,31 @@ const AllBooks = () => {
       genres_in: [],
       year_gte: '',
       year_lte: '',
-      isAvailable: false, // For "Available"
-      isNotAvailable: false // For "Not Available"
+      availability: '', // 'available' or 'notAvailable'
     },
     onSubmit: values => {
       console.log(values);
     },
   });
+
+  const formInputControl = (e) =>
   
+ let filterString = useRef('');
+ let sortString = useRef('');
+
+  const fetchOrdered = (e) => 
+   sortString.current = `sort_${e.target.value}`;
+   fetch(`http://localhost:5500/books?${filterString.current}&${sortString.current}`)
+        .then(res => res.json())
+        .then(data => setBooks(data));
 
   useEffect(() => {
     fetch(`http://localhost:5500/books`)
       .then(res => res.json())
       .then(data => setBooks(data));
   }, []);
+
+
 
   return (
     <StyledSection>
@@ -193,33 +204,39 @@ const AllBooks = () => {
     />
   </div>
 
-  {/* Availability Fieldset */}
-  <fieldset>
-    <legend>Availability</legend>
-    <div>
-      <label>
-        <input 
-          type="checkbox" 
-          name="isAvailable" 
-          onChange={formik.handleChange}
-          checked={formik.values.isAvailable}
-        />
-        Available
-      </label>
-    </div>
+ {/* Availability Fieldset */}
+<fieldset>
+  <legend>Availability</legend>
 
-    <div>
-      <label>
-        <input 
-          type="checkbox" 
-          name="isNotAvailable" 
-          onChange={formik.handleChange}
-          checked={formik.values.isNotAvailable}
-        />
-        Not Available
-      </label>
-    </div>
-  </fieldset>
+  {/* Available */}
+  <div>
+    <label>
+      <input 
+        type="radio" 
+        name="availability" 
+        value="available" 
+        onChange={formik.handleChange}
+        checked={formik.values.availability === 'available'} 
+      />
+      Available
+    </label>
+  </div>
+
+  {/* Not Available */}
+  <div>
+    <label>
+      <input 
+        type="radio" 
+        name="availability" 
+        value="notAvailable" 
+        onChange={formik.handleChange}
+        checked={formik.values.availability === 'notAvailable'} 
+      />
+      Not Available
+    </label>
+  </div>
+</fieldset>
+
 
   <button type="submit">Submit</button>
 </form>
@@ -229,12 +246,12 @@ const AllBooks = () => {
         {/* Sort everything */}
         <div>
           <h4>Sorting</h4>
-          <button value="ratingAsc">Rating ASC</button>
-          <button value="ratingDesc">Rating DESC</button>
-          <button value="releasedAsc">Released ASC</button>
-          <button value="releasedDesc">Released DESC</button>
-          <button value="pagesAsc">Pages ASC</button>
-          <button value="pagesDesc">Pages DESC</button>
+          <button value={'rating=1'} onClick={fetchOrdered}>Rating ASC</button>
+          <button value={'rating=-1'} onClick={fetchOrdered}>Rating DESC</button>
+          <button value={'publishDate=1'} onClick={fetchOrdered}>Published ASC</button>
+          <button value={'publishDate=-1'} onClick={fetchOrdered}>Published DESC</button>
+          <button value={'pages=1'}>Pages ASC</button>
+          <button value={'pages=-1'}>Pages DESC</button>
         </div>
 
         {/* Display all books */}
