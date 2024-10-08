@@ -20,7 +20,10 @@ app.listen(PORT, () => console.log(`Server is running on PORT: ${PORT}`));
 app.get('/books', async (req, res) => {
   const { title = '', genre = '', minYear = '0-01-01', maxYear = '9999-12-31', availability = '', sortField = 'rating', sortOrder = '1' } = req.query;
 
+  console.log("Sort Field:", sortField, "Sort Order:", sortOrder); // Debugging the sort field and order
+
   try {
+
     const client = await MongoClient.connect(DB_CONNECTION);
     const db = client.db('biblioteka');
     const collection = db.collection('knygos');
@@ -43,6 +46,7 @@ app.get('/books', async (req, res) => {
         $sort: { [sortField]: parseInt(sortOrder) } // Dynamic sorting field and order
       }
     ];
+    // console.log("Pipeline:", JSON.stringify(pipeline, null, 2)); 
 
     const books = await collection.aggregate(pipeline).toArray();
     await client.close();

@@ -120,17 +120,27 @@ const AllBooks = () => {
 
    // Function to handle sorting
    const fetchOrdered = (e) => {
-    const sortValue = e.target.value; // This is passed from the button
-    sortString.current = sortValue;
+    const [field, order] = e.target.value.split('='); // Split the sortField and sortOrder
+    sortString.current = `sortField=${field}&sortOrder=${order}`;
+    console.log('Sort String:', sortString.current); // Debugging: check the sort string
     fetchBooks(); // Fetch data with sorting and filters applied
   };
+  
 
   // Fetch books with filters and sorting
   const fetchBooks = () => {
-    fetch(`http://localhost:5500/books?${filterString.current}&${sortString.current}`)
+    const url = `http://localhost:5500/books?${filterString.current}&${sortString.current}`;
+    console.log('Fetching URL:', url); // Debugging: check the final fetch URL
+  
+    fetch(url)
       .then(res => res.json())
-      .then(data => setBooks(data));
+      .then(data => {
+        console.log('Fetched Books:', data); // Debugging: check the fetched data
+        setBooks(Array.isArray(data) ? data : []); // Ensure we set an array or an empty array
+      })
+      .catch(err => console.error('Error fetching data:', err)); // Catch any error during fetch
   };
+  
 
   // Fetch books on the first render (initial load)
   useEffect(() => {
@@ -184,14 +194,14 @@ const AllBooks = () => {
                 />
               </div>
               <div>
-                <label htmlFor="non_fiction">Non-Fiction</label>
+                <label htmlFor="Non_fiction">Non-fiction</label>
                 <input 
                   type="checkbox" 
                   name="genres_in" 
-                  id="non_fiction"
-                  value="NonFiction"
+                  id="Non-fiction"
+                  value="Non-fiction"
                   onChange={formik.handleChange}
-                  checked={formik.values.genres_in.includes('NonFiction')}
+                  checked={formik.values.genres_in.includes('Non-fiction')}
                 />
               </div>
               <div>
@@ -280,19 +290,22 @@ const AllBooks = () => {
 
         {/* Sort everything */}
         <div>
-          <h4>Sorting</h4>
-          <button value="rating=1" onClick={fetchOrdered}>Rating ASC</button>
-          <button value="rating=-1" onClick={fetchOrdered}>Rating DESC</button>
-          <button value="publishDate=1" onClick={fetchOrdered}>Published ASC</button>
-          <button value="publishDate=-1" onClick={fetchOrdered}>Published DESC</button>
-          <button value="pages=1" onClick={fetchOrdered}>Pages ASC</button>
-          <button value="pages=-1" onClick={fetchOrdered}>Pages DESC</button>
-        </div>
+        <h4>Sorting</h4>
+        <button value="rating=1" onClick={fetchOrdered}>Rating ASC</button>
+        <button value="rating=-1" onClick={fetchOrdered}>Rating DESC</button>
+        <button value="publishDate=1" onClick={fetchOrdered}>Published ASC</button>
+        <button value="publishDate=-1" onClick={fetchOrdered}>Published DESC</button>
+        <button value="pages=1" onClick={fetchOrdered}>Pages ASC</button>
+        <button value="pages=-1" onClick={fetchOrdered}>Pages DESC</button>
+       </div>
+
+
+         
 
         {/* Display all books */}
         <div>
           { 
-            books.map(book =>
+            Array.isArray(books) && books.map(book =>
               <BookCard 
                 key={book._id} 
                 book={book}
