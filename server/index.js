@@ -1,5 +1,5 @@
 import express from "express";
-import { MongoClient } from "mongodb";
+import { MongoClient} from "mongodb";
 import cors from 'cors';
 import 'dotenv/config';
 
@@ -25,10 +25,10 @@ app.get('/books', async (req, res) => {
 
 // route to get one specific book
 app.get('/books/:id', async (req, res) => {
+  let filter = {"_id": req.params.id};
   const client = await MongoClient.connect(DB_CONNECTION);
-  const bookId = req.params.id; 
-  const book = await client.db('biblioteka').collection('knygos').findOne({ _id: bookId });
+  const data = await client.db('biblioteka').collection('knygos').findOne(filter);
   await client.close();
-  res.send(book);
+  res.send(data);
 });
 

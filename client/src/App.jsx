@@ -11,7 +11,7 @@ const App = () => {
       <Route path='' element={<BaseOutlet />} >
          <Route index element={<Home />} />
          <Route path='/books' element={<AllBooks />} />
-         <Route path=':id' element={<SpecificBook />} />
+         <Route path='/books/:id' element={<SpecificBook />} />
        </Route>
    </Routes>
   );
