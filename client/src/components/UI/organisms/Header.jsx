@@ -7,6 +7,7 @@ const StyledHeader = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: "Gill Sans Extrabold", sans-serif;
 
     > a {
       height: 80%; 
